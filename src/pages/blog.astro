@@ -1,6 +1,7 @@
 ---
-import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
 import '../styles/global.css';
+import Footer from '../components/Footer.astro';
 ---
 
 <html lang="en">
@@ -13,7 +14,7 @@ import '../styles/global.css';
 		<title>Astro</title>
 	</head>
 	<body>
-        <Navigation />
+        <Header />
 
         <h1>私のAstroサイト</h1>
         <h1>私のAstro学習ブログ</h1>
@@ -23,5 +24,9 @@ import '../styles/global.css';
             <li><a href="/posts/post-2/">記事2</a></li>
             <li><a href="/posts/post-3/">記事3</a></li>
         </ul>
+        <Footer />
+        <script>
+			import "../scripts/menu.js";
+		</script>
     </body>
 </html>

@@ -1,5 +1,6 @@
 ---
-import Navigation from '../components/Navigation.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
 import '../styles/global.css';
 
 const pageTitle = "About US";
@@ -43,7 +44,7 @@ const textCase = "uppercase";
         </style>
 	</head>
 	<body>
-        <Navigation />
+        <Header />
 
 		<h1>ゆるふわ曲芸カンパニー</h1>
         <h1>{pageTitle}</h1>
@@ -71,5 +72,9 @@ const textCase = "uppercase";
         {finished && <p>I finished this tutorial! このチュートリアルを終えました！</p>}
 
         {goal === 3 ? <p>ウオオオオオオオオオン（大気圏に突入する犬）</p> : <p>My goal is not 3 days. 3日が目標ではありません。</p>}
+        <Footer />
+        <script>
+			import "../scripts/menu.js";
+		</script>
 	</body>
 </html>
