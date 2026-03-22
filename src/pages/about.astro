@@ -1,5 +1,22 @@
 ---
+const pageTitle = "About US";
 
+const identity = {
+  firstName: "ゆるふわ曲芸カンパニー",
+  country: "力",
+  occupation: "クリエイター",
+  hobbies: ["音楽", "イラスト", "執筆"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "X(旧Twitter）", "Astro", "ドキュメントの執筆"];
+
+const happy = true;
+const finished = false;
+const goal = 3;
+
+const skillColor = "crimson";
+const fontWeight = "bold";
+const textCase = "uppercase";
 ---
 
 <html lang="en">
@@ -9,7 +26,18 @@
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
+		<title>{pageTitle}</title>
+        <style define:vars={{skillColor, fontWeight, textCase}}>
+            h1 {
+                color: tomato;
+                font-size: 4rem;
+            }
+            .skill {
+                color: var(--skillColor);
+                font-weight: var(--fontWeight);
+                text-transform: var(--textCase);
+            }
+        </style>
 	</head>
 	<body>
         <a href="/">ホーム</a>
@@ -17,11 +45,30 @@
         <a href="/blog/">ブログ</a>
 
 		<h1>ゆるふわ曲芸カンパニー</h1>
-        <h1>私について</h1>
-        <h2>... そして私の新しいAstroサイトについて！</h2>
+        <h1>{pageTitle}</h1>
+        <h2>... 強いマリトッツォ、マリトッ強</h2>
 
-        <p>私はAstroの入門チュートリアルを進めています。これは私のウェブサイトの2番目のページで、自分で作った初めてのページです！</p>
+        <p>マヨネーズ（そういう米津）</p>
 
-        <p>このサイトはチュートリアルを進めるにつれて更新されていきます。定期的にチェックして、私の旅の様子を見に来てください！</p>
+        <p>復讐は何も生まない！　→　無から生まれるおじさん「俺が生まれるよぉ～」</p>
+
+        <p>以下は私に関するいくつかの事実です。</p>
+<ul>
+  <li>我々の名前は{identity.firstName}です。</li>
+        <li>{identity.country}に住んでおり、{identity.occupation}として働いています。</li>
+        {identity.hobbies.length >= 2 &&
+            <li>私の2つの趣味は{identity.hobbies[0]}と{identity.hobbies[1]}です。</li>
+        }
+        </ul>
+        <p>私のスキルは以下の通りです。</p>
+        <ul>
+            {skills.map((skill) => <li class="skill">{skill}</li>)}
+        </ul>
+
+        {happy && <p>右半身だけイエベだと思って病院に行ったら左半身もイエベだった人</p>}
+
+        {finished && <p>I finished this tutorial! このチュートリアルを終えました！</p>}
+
+        {goal === 3 ? <p>ウオオオオオオオオオン（大気圏に突入する犬）</p> : <p>My goal is not 3 days. 3日が目標ではありません。</p>}
 	</body>
 </html>
